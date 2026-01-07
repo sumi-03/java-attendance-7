@@ -7,7 +7,6 @@ import java.util.List;
 
 public class CSVReader {
     public static List<List<String>> readCSV() {
-
         File file = new File("src/main/resources/attendances.csv");
         String absolutePath = file.getAbsolutePath();
 

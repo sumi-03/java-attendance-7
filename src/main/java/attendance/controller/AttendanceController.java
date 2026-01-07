@@ -1,22 +1,29 @@
 package attendance.controller;
 
+import attendance.domain.AttendanceManager;
 import attendance.util.CSVReader;
+import attendance.util.DateChecker;
 import attendance.util.InputHandler;
 import attendance.view.OutputView;
+import camp.nextstep.edu.missionutils.DateTimes;
 
-import java.util.List;
+import java.time.LocalDateTime;
+
 
 public class AttendanceController {
 
     public void run() {
-        List<List<String>> crewAttendance = CSVReader.readCSV();
+        AttendanceManager attendanceManager = new AttendanceManager(CSVReader.readCSV());
+        LocalDateTime today = DateTimes.now();
         while (true) {
-            OutputView.functionInfo();
+            OutputView.printFunctionInfo();
             int function = InputHandler.getFunctionNumber();
             if (function == 0) {
                 break;
             } else if (function == 1) {
-                // 출석 확인
+                DateChecker.checkWeekendOrHoliday(today.getDayOfMonth());
+                String s = InputHandler.checkAttendance(attendanceManager);
+                OutputView.printAttendance(s);
             } else if (function == 2) {
                 // 출석 수정
             } else if (function == 3) {
