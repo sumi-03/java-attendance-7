@@ -20,4 +20,8 @@ public class OutputView {
     public static void printAttendance(String status) {
         System.out.println(today.getMonthValue() + "월 " + today.getDayOfMonth() + "일 " + DateChecker.getDayOfWeek(today.getDayOfMonth()) + status);
     }
+
+    public static void printModifidAttendance(String contents) {
+        System.out.println("12월 " + contents + "\n");
+    }
 }

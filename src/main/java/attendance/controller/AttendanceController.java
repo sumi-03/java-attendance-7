@@ -22,10 +22,11 @@ public class AttendanceController {
                 break;
             } else if (function == 1) {
                 DateChecker.checkWeekendOrHoliday(today.getDayOfMonth());
-                String s = InputHandler.checkAttendance(attendanceManager);
-                OutputView.printAttendance(s);
+                String contents = InputHandler.checkAttendance(attendanceManager);
+                OutputView.printAttendance(contents);
             } else if (function == 2) {
-                // 출석 수정
+                String contents = InputHandler.modifyAttendance(attendanceManager);
+                OutputView.printModifidAttendance(contents);
             } else if (function == 3) {
                 // 크루별 출석 기록 확인
             } else if (function == 4) {
