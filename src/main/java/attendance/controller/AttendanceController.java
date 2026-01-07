@@ -1,12 +1,15 @@
 package attendance.controller;
 
+import attendance.util.CSVReader;
 import attendance.util.InputHandler;
 import attendance.view.OutputView;
+
+import java.util.List;
 
 public class AttendanceController {
 
     public void run() {
-        // 셋팅
+        List<List<String>> crewAttendance = CSVReader.readCSV();
         while (true) {
             OutputView.functionInfo();
             int function = InputHandler.getFunctionNumber();
